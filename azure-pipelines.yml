@@ -10,7 +10,8 @@ pool:
 name: Default
 vmImage :LAKSHMI
 
-
+steps:
+  -
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
