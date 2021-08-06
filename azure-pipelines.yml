@@ -2,16 +2,14 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
-
 trigger:
 - master
 
 pool:
-name: Default
-vmImage :LAKSHMI
+  name: Default
+  vmImage: LAKSHMI
 
 steps:
-  -
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -21,4 +19,6 @@ steps:
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
-    sonarQubeRunAnalysis: false
+    sonarQubeRunAnalysis: true
+    isJacocoCoverageReportXML: true
+    sqMavenPluginVersionChoice: 'latest'
